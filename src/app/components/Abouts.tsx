@@ -12,7 +12,7 @@ const Abouts = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <section className="py-20 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-14 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         
         {/* Image section */}
         <motion.div
@@ -42,7 +42,7 @@ const Abouts = () => {
           </p>
 
           <Link href="/about">
-            <button className="bg-[#F0D267] p-2 rounded-full w-[200px] cursor-pointer hover:opacity-90 transition">
+            <button className="bg-[#F0D267] p-3 rounded-full w-full lg:w-[200px] cursor-pointer hover:opacity-90 transition">
               Know more
             </button>
           </Link>

@@ -25,7 +25,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white">
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight text-white">
             Turn your passion into a scalable brand—with the systems and strategy to support it
           </h1>
 
