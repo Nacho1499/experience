@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { FaQuoteLeft } from "react-icons/fa";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface Testimonial {
   name: string;
@@ -19,48 +20,60 @@ const testimonials: Testimonial[] = [
   {
     name: "Sarah",
     role: "First-time Buyer",
-    text: "Nestify made buying our first home an incredible experience. They guided us with clarity and patience at every step.",
+    text: "The Product Comments section allows users to share their thoughts, experiences, and feedback about.",
     image: "/jobber2.jpg",
   },
   {
     name: "Mark",
-    role: "Landlord",
-    text: "Their property management services are efficient, friendly, and stress-free. I never worry about my rentals anymore.",
+    role: "vendor",
+    text: "The Product Comments section allows users to share their thoughts, experiences, and feedback about.",
     image: "/jobber2.jpg",
   },
   {
     name: "Emily",
     role: "Renter",
-    text: "I found the perfect apartment through Nestify in just days. The experience was smooth and the listings were top quality.",
+    text: "The Product Comments section allows users to share their thoughts, experiences, and feedback about.",
     image: "/jobber2.jpg",
   },
   {
     name: "Jason",
     role: "Investor",
-    text: "Nestify helped me find valuable properties with great ROI. Their agents know the market inside out.",
+    text: "The Product Comments section allows users to share their thoughts, experiences, and feedback about.",
     image: "/jobber2.jpg",
   },
   {
     name: "Emmanuel",
     role: "Seller",
-    text: "Selling my home was fast and easy with Nestify. They handled everything professionally and with care.",
+    text: "The Product Comments section allows users to share their thoughts, experiences, and feedback about.",
     image: "/jobber2.jpg",
   },
   {
     name: "Daniel",
-    role: "Tenant",
-    text: "Great experience from start to finish. Highly recommend Nestify to anyone looking for a home.",
+    role: "jobber",
+    text: "The Product Comments section allows users to share their thoughts, experiences, and feedback about.",
     image: "/jobber2.jpg",
   },
 ];
 
 const Testimonia = () => {
   return (
-    <section className="py-20 bg-[#F5F5F5] text-[#2C1F02] font-sans">
+    
+    <motion.section
+      className="py-20 bg-[#F5F5F5] text-[#2C1F02] font-sans"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#F0D267]">
-          What Our Clients Say
-        </h2>
+        <motion.h2
+          className="text-lg md:text-2xl font-bold mb-12"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          Hundreds of founders, creators, and business owners trust our tools,
+          support, and strategy to help them grow smarter and live better.
+        </motion.h2>
 
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -76,9 +89,17 @@ const Testimonia = () => {
         >
           {testimonials.map((t, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white p-6 rounded-2xl shadow-md h-full flex flex-col justify-between hover:shadow-xl transition duration-300">
+              <motion.div
+                className="bg-white p-6 rounded-2xl shadow-md h-full flex flex-col justify-between hover:shadow-xl transition duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
                 <FaQuoteLeft className="text-[#F0D267] text-2xl mb-4" />
-                <p className="text-gray-700 italic text-base mb-6 leading-relaxed">“{t.text}”</p>
+                <p className="text-gray-700 italic text-base mb-6 leading-relaxed">
+                  “{t.text}”
+                </p>
                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gray-200">
                   <Image
                     src={t.image}
@@ -92,12 +113,14 @@ const Testimonia = () => {
                     <span className="text-xs text-[#1B264F]">{t.role}</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
+  
       </div>
-    </section>
+    </motion.section>
+    
   );
 };
 

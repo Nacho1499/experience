@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { Inter } from 'next/font/google';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -11,7 +12,7 @@ const Navbar: React.FC = () => {
         <nav className="bg-white text-[#1B264F] p-2 sticky top-0 z-50">
             <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4">
                 <Link href="/">
-                    <h1 className="text-2xl bg=[#1B264F] font-bold cursor-pointer">
+                    <h1 className="text-2xl text-[#1B264F] font-bold cursor-pointer">
                         Experience
                     </h1>
                 </Link>
@@ -21,8 +22,8 @@ const Navbar: React.FC = () => {
                     <Link href="/" className="">
                         Home
                     </Link>
-                    <Link href="/about" className="">
-                        About
+                    <Link href="" className="">
+                        Product
                     </Link>
                     <Link href="/contact" className="">
                         Contact
@@ -65,11 +66,11 @@ const Navbar: React.FC = () => {
                         Home
                     </Link>
                     <Link
-                        href="about"
+                        href=""
                         onClick={toggleMenu}
                         className="block "
                     >
-                        About
+                        product
                     </Link>
                     <Link
                         href="/contact"
