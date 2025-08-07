@@ -15,19 +15,19 @@ const services: Offer[] = [
   {
     id: 1,
     title: "E-commerce Support",
-    image: "/lang.svg",
+    image: "/offer1.jpg",
     description: "Scale your store without the stress—our team handles customer queries, issue resolution, and support so you can focus on growth."
   },
   {
     id: 2,
     title: "Digital Products",
-    image: "/lang.svg",
+    image: "/offer1.jpg",
     description: "Access digital playbooks that simplify decision-making and give you the clarity to scale confidently—on your own terms."
   },
   {
     id: 3,
     title: "Lifestyle/Business Consultancy",
-    image: "/lang.svg",
+    image: "/offer2.jpg",
     description: "Transform the way you work and live through bespoke consultancy that bridges strategy, structure, and sustainability."
   }
 ];
@@ -54,10 +54,10 @@ const Offers = () => {
             transition={{ delay: 0.2 * index, duration: 0.6 }}
           >
             <Image
-              className=" mb-5"
+              className=" rounded-full mb-5 w-[50] h-[50]"
               src={offer.image}
-              width={25}
-              height={25}
+              width={100}
+              height={50}
               alt="icon"
             />
             <h2 className="text-2xl font-bold mb-5">{offer.title}</h2>

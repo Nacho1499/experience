@@ -28,7 +28,7 @@ const Page = () => {
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="relative h-[40vh] bg-cover bg-center flex items-center justify-center"
+          className="relative h-[40vh] bg-cover bg-center flex items-center justify-center bg-fixed"
           style={{ backgroundImage: "url('/world.webp')" }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30 z-0" />
