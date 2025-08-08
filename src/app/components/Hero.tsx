@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -35,10 +36,10 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
           >
-            <button className="bg-[#F0D267] text-black px-6 py-3 rounded-full hover:opacity-90 transition">
+            <Link href="/contact"><button className="bg-[#F0D267] text-black px-6 py-3 cursor-pointer rounded-full hover:opacity-90 transition">
               Book a Discovery Call
-            </button>
-            <button className="border border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-[#2C1F02] transition">
+            </button></Link>
+            <button className="border border-white text-white px-6 py-3 cursor-pointer rounded-full hover:bg-white hover:text-[#2C1F02] transition">
               Explore Our Services
             </button>
           </motion.div>
