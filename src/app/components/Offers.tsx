@@ -87,7 +87,7 @@ const Offers = () => {
             className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
             variants={cardVariants}
           >
-            <div className="relative w-full h-48">
+            <div className="relative w-full h-40">
               <Image
                 src={offer.image}
                 alt={offer.title}

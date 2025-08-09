@@ -55,6 +55,7 @@ export default function ContactPage() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-6">Our Vision</h2>
+          <hr className='w-[50px]' />
           <p className="mb-8 leading-relaxed">
             A modern consultancy for the connected era—equipping creators and
             service professionals with the resources to build resilient,
@@ -62,6 +63,7 @@ export default function ContactPage() {
           </p>
 
           <h2 className="text-3xl font-bold mb-6">Our Why</h2>
+          <hr className='w-[50px]' />
           <p className="mb-8 leading-relaxed">
             We exist to teach 1 million modern entrepreneurs how to build
             aligned businesses, master their time, and thrive on their own
@@ -71,7 +73,7 @@ export default function ContactPage() {
           <Link
             href="https://calendar.google.com/calendar/u/2?cid=NjZlODQ5MGFhM2Q3YjQxNzRkZWRmMTBhMWRiMDQzZTg1ODAwYjgyODc2NzQ5OGExNTk0OGFhZDE2NzZjNWZlM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
             target="_blank"
-            className="inline-block bg-[#2C1F02] text-white px-6 py-3 rounded-lg shadow hover:bg-[#4A3510] transition"
+            className="inline-block bg-[#F0D267] text-white px-6 py-3 rounded-lg shadow hover:bg-[#4A3510] transition"
           >
             Book a Discovery Call
           </Link>
@@ -116,7 +118,7 @@ export default function ContactPage() {
             ></textarea>
             <button
               type="submit"
-              className="w-full bg-[#2C1F02] text-white px-6 py-3 rounded-lg shadow hover:bg-[#4A3510] transition"
+              className="w-full bg-[#F0D267] text-white px-6 py-3 cursor-pointer rounded-lg shadow hover:bg-[#4A3510] transition"
             >
               Send Message
             </button>

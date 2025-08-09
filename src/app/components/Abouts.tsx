@@ -24,7 +24,7 @@ const Abouts = () => {
             src="/world.webp"
             alt="Our Team"
             width={700}
-            height={400}
+            height={700}
             className="rounded-2xl  object-cover"
           />
         </motion.div>

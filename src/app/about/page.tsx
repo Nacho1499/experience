@@ -34,6 +34,7 @@ const Page = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30 z-0" />
           <div className="relative z-10 text-center px-4">
             <h1 className="text-5xl md:text-6xl font-bold text-white">About Us</h1>
+
             <p className="mt-4 text-white text-lg max-w-2xl mx-auto leading-relaxed">
               Learn more about our journey, our values, and how we empower brands to thrive.
             </p>
@@ -59,10 +60,12 @@ const Page = () => {
           </motion.div>
           <motion.div className="space-y-6" variants={fadeInUp}>
             <h2 className="text-3xl font-bold text-[#1B264F]">Our Why</h2>
+            <hr className='w-[50px]' />
             <p className="text-lg text-gray-800 leading-relaxed">
               We exist to teach 1 million modern entrepreneurs how to build aligned businesses, master their time, and thrive on their own terms.
             </p>
             <h2 className="text-3xl font-bold text-[#1B264F]">Our Vision</h2>
+            <hr className='w-[50px]' />
             <p className="text-lg text-gray-800 leading-relaxed">
               A modern consultancy for the connected era—equipping creators and service professionals with the resources to build resilient, purpose-led businesses.
             </p>
@@ -118,6 +121,7 @@ const Page = () => {
           className="max-w-6xl mx-auto px-4 pb-24"
         >
           <h3 className="text-3xl font-bold text-center mb-12 text-[#1B264F]">Our Core Values</h3>
+          <hr className='w-[50px]' />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               'Personalized Support',
