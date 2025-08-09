@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
             <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4">
                 <Link href="/">
                     <h1 className="text-2xl text-[#1B264F] font-bold cursor-pointer">
-                        Experience
+                       Billionth-Experience
                     </h1>
                 </Link>
 

@@ -37,6 +37,7 @@ const Abouts = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h2 className="text-3xl font-bold text-[#1B264F]">Our Why</h2>
+          <hr className='w-[50px]' />
           <p className="text-lg text-gray-800 leading-relaxed">
             We exist to teach 1 million modern entrepreneurs how to build aligned businesses, master their time, and thrive on their own terms.
           </p>

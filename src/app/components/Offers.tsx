@@ -15,57 +15,96 @@ const services: Offer[] = [
   {
     id: 1,
     title: "E-commerce Support",
-    image: "/offer1.jpg",
-    description: "Scale your store without the stress—our team handles customer queries, issue resolution, and support so you can focus on growth."
+    image: "/offer.jpg",
+    description:
+      "Scale your store without the stress—our team handles customer queries, issue resolution, and support so you can focus on growth."
   },
   {
     id: 2,
     title: "Digital Products",
-    image: "/offer1.jpg",
-    description: "Access digital playbooks that simplify decision-making and give you the clarity to scale confidently—on your own terms."
+    image: "/offer6.jpg",
+    description:
+      "Access digital playbooks that simplify decision-making and give you the clarity to scale confidently—on your own terms."
   },
   {
     id: 3,
     title: "Lifestyle/Business Consultancy",
-    image: "/offer2.jpg",
-    description: "Transform the way you work and live through bespoke consultancy that bridges strategy, structure, and sustainability."
+    image: "/offer7.jpg",
+    description:
+      "Transform the way you work and live through bespoke consultancy that bridges strategy, structure, and sustainability."
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0 }
+};
+
 const Offers = () => {
   return (
-    <motion.div
-      className="bg-[#F5F5F5] py-16"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+    <motion.section
+      className="bg-[#F5F5F5] py-20 px-5"
+      initial="hidden"
+      animate="show"
+      variants={containerVariants}
     >
-      <p className="text-xl max-w-2xl text-center mx-auto">
-        "We power entrepreneurs and small businesses with scalable support, strategic insight, and digital resources."
-      </p>
+      {/* Heading */}
+      <motion.h1
+        className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-6"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        Our <span className="text-[#F0D267]">Services</span>
+      </motion.h1>
 
-      <div className="grid grid-cols-1 max-w-7xl mx-auto md:grid-cols-3 gap-6 p-8 mt-5">
-        {services.map((offer, index) => (
+      <motion.p
+        className="text-lg max-w-3xl text-center mx-auto text-gray-600 mb-14"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+      >
+        We power entrepreneurs and small businesses with scalable support,
+        strategic insight, and digital resources.
+      </motion.p>
+
+      {/* Cards */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+        variants={containerVariants}
+      >
+        {services.map((offer) => (
           <motion.div
             key={offer.id}
-            className="rounded-lg shadow p-5 bg-white"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 * index, duration: 0.6 }}
+            className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
+            variants={cardVariants}
           >
-            <Image
-              className=" rounded-full mb-5 w-[50] h-[50]"
-              src={offer.image}
-              width={100}
-              height={50}
-              alt="icon"
-            />
-            <h2 className="text-2xl font-bold mb-5">{offer.title}</h2>
-            <p>{offer.description}</p>
+            <div className="relative w-full h-48">
+              <Image
+                src={offer.image}
+                alt={offer.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-gray-800 mb-3">
+                {offer.title}
+              </h2>
+              <p className="text-gray-600">{offer.description}</p>
+            </div>
           </motion.div>
         ))}
-      </div>
-    </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 
