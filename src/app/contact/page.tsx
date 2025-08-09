@@ -22,7 +22,7 @@ export default function ContactPage() {
     <div className="bg-[#F5F5F5] text-[#2C1F02] font-sans">
       {/* Hero Section */}
       <div
-        className="relative bg-cover bg-center h-[300px] flex items-center justify-center"
+        className="relative bg-cover bg-center h-[300px] flex items-center justify-center bg-fixed"
         style={{
           backgroundImage: "url('/contact.jpg')",
         }}

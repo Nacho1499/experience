@@ -121,7 +121,7 @@ const Page = () => {
           className="max-w-6xl mx-auto px-4 pb-24"
         >
           <h3 className="text-3xl font-bold text-center mb-12 text-[#1B264F]">Our Core Values</h3>
-          <hr className='w-[50px]' />
+         
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               'Personalized Support',
