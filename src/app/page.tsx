@@ -4,6 +4,7 @@ import Offers from "./components/Offers";
 import Action from "./components/Action";
 import Abouts from "./components/Abouts";
 import Faq from "./components/Faq";
+import Product from "./components/Product"
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
     <Hero/>
     <Offers/>
     <Abouts/>
+    <Product/>
     <Testimonia/>
     <Action/>
     <Faq/>
