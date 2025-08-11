@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Inter } from 'next/font/google';
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -9,12 +10,10 @@ const Navbar: React.FC = () => {
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
-        <nav className="bg-white text-[#1B264F] p-2 sticky top-0 z-50">
+        <nav className="bg-white/20 backdrop-blur-lg text-[#1B264F] p-2 sticky top-0 z-50 ">
             <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4">
                 <Link href="/">
-                    <h1 className="text-2xl text-[#1B264F] font-bold cursor-pointer">
-                       Billionth-Experience
-                    </h1>
+                    <Image className="h-10 w-[200px] object-cover" src="/logo.jpg" height={1} width={200} alt="logo"/>
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -22,11 +21,11 @@ const Navbar: React.FC = () => {
                     <Link href="/" className="">
                         Home
                     </Link>
-                    <Link href="" className="">
-                        Product
-                    </Link>
                     <Link href="/contact" className="">
-                        Contact
+                         Contact
+                    </Link>
+                    <Link href="" className="">
+                       Products
                     </Link>
                 </div>
 

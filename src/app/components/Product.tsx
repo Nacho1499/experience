@@ -115,7 +115,7 @@ const Product = () => {
             </motion.div>
             <div className='text-center mt-16'>
                 <Link href="">
-                    <button className="bg-[#F0D267] text-black font-medium px-6 py-3 rounded-full w-full lg:w-[200px] shadow-md hover:bg-[#e6c95f] hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+                    <button className="bg-[#F0D267] cursor-pointer text-black font-medium px-6 py-3 rounded-full w-full lg:w-[200px] shadow-md hover:bg-[#e6c95f] hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
                         Shop All Products
                     </button>
                 </Link>

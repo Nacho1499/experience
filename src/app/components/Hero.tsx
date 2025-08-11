@@ -36,7 +36,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
           >
-            <Link href="/contact"><button className="bg-[#F0D267] text-black px-6 py-3 cursor-pointer rounded-full hover:opacity-90 transition">
+            <Link href="https://calendar.google.com/calendar/u/2?cid=NjZlODQ5MGFhM2Q3YjQxNzRkZWRmMTBhMWRiMDQzZTg1ODAwYjgyODc2NzQ5OGExNTk0OGFhZDE2NzZjNWZlM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t" target='_blank'><button className="bg-[#F0D267] text-black px-6 py-3 cursor-pointer rounded-full hover:opacity-90 transition">
               Book a Discovery Call
             </button></Link>
             <button className="border border-white text-white px-6 py-3 cursor-pointer rounded-full hover:bg-white hover:text-[#2C1F02] transition">

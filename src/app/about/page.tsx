@@ -51,10 +51,10 @@ const Page = () => {
         >
           <motion.div variants={fadeInUp}>
             <Image
-              src="/hero.jpg"
+              src="/about.jpg"
               alt="Our Team"
-              width={600}
-              height={400}
+              width={450}
+              height={150}
               className="rounded-2xl shadow-xl object-cover"
             />
           </motion.div>
