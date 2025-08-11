@@ -12,8 +12,8 @@ const Abouts = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <section className="py-14 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-
+      <section className="py-14 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center ">
+       
         {/* Image section */}
         <motion.div
           initial={{ x: -50, opacity: 0 }}
@@ -27,6 +27,7 @@ const Abouts = () => {
             height={150}
             className="rounded-2xl  object-cover"
           />
+         
         </motion.div>
 
         {/* Text section */}
