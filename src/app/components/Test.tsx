@@ -90,13 +90,7 @@ const Testimonia = () => {
                   “{t.text}”
                 </p>
                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gray-200">
-                  <Image
-                    src={t.image}
-                    alt={t.name}
-                    width={40}
-                    height={40}
-                    className="rounded-full object-cover"
-                  />
+                 
                   <div className="text-left">
                     <h4 className="text-sm font-bold">{t.name}</h4>
                     <span className="text-xs text-[#1B264F]">{t.role}</span>
