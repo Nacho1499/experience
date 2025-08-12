@@ -24,7 +24,7 @@ export default function ContactPage() {
       <div
         className="relative bg-cover bg-center h-[300px] flex items-center justify-center bg-fixed"
         style={{
-          backgroundImage: "url('/contact.jpg')",
+          backgroundImage: "url('/hero.jpg')",
         }}
       >
         {/* Overlay */}

@@ -17,21 +17,21 @@ const services: Offer[] = [
     {
         id: 1,
         title: "E-commerce Support",
-        image: "/offer.jpg",
+        image: "/pro1.jpg",
         description:
             "Scale your store without the stress—our team handles customer queries, issue resolution, and support so you can focus on growth."
     },
     {
         id: 2,
         title: "Digital Products",
-        image: "/offer6.jpg",
+        image: "/pro3.jpg",
         description:
             "Access digital playbooks that simplify decision-making and give you the clarity to scale confidently—on your own terms."
     },
     {
         id: 3,
         title: "Lifestyle/Business Consultancy",
-        image: "/offer7.jpg",
+        image: "/pro2.jpg",
         description:
             "Transform the way you work and live through bespoke consultancy that bridges strategy, structure, and sustainability."
     }
