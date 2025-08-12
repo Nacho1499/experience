@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <div className="text-[#2C1F02] font-sans">
       <section
-        className="min-h-screen flex flex-col justify-center items-center px-4 text-center bg-cover  bg-center relative "
+        className="min-h-screen flex flex-col justify-center items-center px-4 text-center bg-cover  bg-center relative lg:bg-fixed"
         style={{ backgroundImage: "url('/pic1.jpg')" }} // Replace with your image path
       >
         {/* Overlay */}
