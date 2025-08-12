@@ -39,7 +39,7 @@ const Abouts = () => {
         >
           <h2 className="text-3xl font-bold text-[#1B264F]">About us</h2>
           <hr className='w-[50px]' />
-          <Image className='mx-auto' src="/world.webp" height={150} width={300} alt='about'/>
+          <Image className='mx-auto' src="/world.webp" height={150} width={200} alt='about'/>
           <p className="text-lg text-gray-800 leading-relaxed">
             At the intersection of e-commerce, digital experience, and modern living, we exist to 
             help businesses and individuals operate smarter and live better. With a background rooted in operational excellence and client-centric execution, we deliver bespoke solutions that drive measurable impact. Whether you're scaling a storefront or redefining your personal workflow, we’re here to elevate your journey.

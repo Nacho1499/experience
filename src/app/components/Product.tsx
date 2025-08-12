@@ -58,6 +58,7 @@ const Product = () => {
             animate="show"
             variants={containerVariants}
         >
+            <h1 className='h-4 w-4 bg-[#F0D267] rounded-full mx-auto animate-bounce shadow-lg'></h1>
             {/* Heading */}
             <motion.h1
                 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-6"
