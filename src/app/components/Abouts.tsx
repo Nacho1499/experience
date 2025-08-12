@@ -21,10 +21,10 @@ const Abouts = () => {
           transition={{ duration: 0.8 }}
         >
           <Image
-            src="/about.jpg"
+            src="/pic2.jpg"
             alt="Our Team"
-            width={450}
-            height={150}
+            width={500}
+            height={250}
             className="rounded-2xl  object-cover"
           />
          

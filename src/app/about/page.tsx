@@ -51,9 +51,9 @@ const Page = () => {
         >
           <motion.div variants={fadeInUp}>
             <Image
-              src="/about.jpg"
+              src="/pic2.jpg"
               alt="Our Team"
-              width={450}
+              width={500}
               height={150}
               className="rounded-2xl shadow-xl object-cover"
             />
