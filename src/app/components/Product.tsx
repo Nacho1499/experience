@@ -23,10 +23,10 @@ const services: Offer[] = [
     },
     {
         id: 2,
-        title: "Digital Products",
-        image: "/pro3.jpg",
+        title: "Brand Style Guide Kits",
+        image: "/style.jpg",
         description:
-            "Access digital playbooks that simplify decision-making and give you the clarity to scale confidently—on your own terms."
+            "inspired by the principle of the world most iconnic brands, this 10+ plug and play guide book gives you the tools to define,refine, and scale your brand with confidence."
     },
     {
         id: 3,
@@ -103,21 +103,17 @@ const Product = () => {
                             </h2>
                             <p className="text-gray-600">{offer.description}</p>
                             <div className='mt-5'>
-                                <Link href="" className=' font-bold text-sm hover:bg-[#F0D267] p-2 rounded-full transition'>  Shop product →</Link>
+                                <Link href="" className=' font-bold text-sm hover:bg-[#F0D267] p-2 rounded-full transition'>  View product →</Link>
                             </div>
 
-
                         </div>
-
-
-
                     </motion.div>
                 ))}
             </motion.div>
             <div className='text-center mt-16'>
                 <Link href="">
                     <button className="bg-[#F0D267] cursor-pointer text-black font-medium px-6 py-3 rounded-full w-full lg:w-[200px] shadow-md hover:bg-[#e6c95f] hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
-                        Shop All Products
+                        View All Products
                     </button>
                 </Link>
 

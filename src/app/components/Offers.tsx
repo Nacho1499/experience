@@ -15,21 +15,21 @@ const services: Offer[] = [
   {
     id: 1,
     title: "E-commerce Support",
-    image: "/3.jpg",
+    image: "/pro1.jpg",
     description:
       "Scale your store without the stress—our team handles customer queries, issue resolution, and support so you can focus on growth."
   },
   {
     id: 2,
     title: "Digital Products",
-    image: "/2.jpg",
+    image: "/pro3.jpg",
     description:
       "Access digital playbooks that simplify decision-making and give you the clarity to scale confidently—on your own terms."
   },
   {
     id: 3,
     title: "Lifestyle/Business Consultancy",
-    image: "/1.jpg",
+    image: "/pro2.jpg",
     description:
       "Transform the way you work and live through bespoke consultancy that bridges strategy, structure, and sustainability."
   }
@@ -56,10 +56,12 @@ const Offers = () => {
       animate="show"
       variants={containerVariants}
     >
+      {/* Decorative dot */}
       <h1 className='h-4 w-4 bg-[#F0D267] rounded-full mx-auto animate-bounce shadow-lg'></h1>
+
       {/* Heading */}
       <motion.h1
-        className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-6"
+        className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-4"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -67,6 +69,7 @@ const Offers = () => {
         Our <span className="text-[#F0D267]">Services</span>
       </motion.h1>
 
+      {/* Subtitle */}
       <motion.p
         className="text-lg max-w-3xl text-center mx-auto text-gray-600 mb-14"
         initial={{ opacity: 0 }}
@@ -79,29 +82,31 @@ const Offers = () => {
 
       {/* Cards */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto"
         variants={containerVariants}
       >
         {services.map((offer) => (
           <motion.div
             key={offer.id}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
+            className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300"
             variants={cardVariants}
           >
-            <div className="p-4">
+            {/* Image */}
+            <div className="relative w-full h-56 md:h-64 overflow-hidden">
               <Image
                 src={offer.image}
                 alt={offer.title}
-                height={30}
-                width={60}
-                className="shadow-lg p-3 rounded"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
+
+            {/* Content */}
             <div className="p-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">
+              <h2 className="text-xl font-bold text-gray-800 mb-3">
                 {offer.title}
               </h2>
-              <p className="text-gray-600">{offer.description}</p>
+              <p className="text-gray-600 leading-relaxed">{offer.description}</p>
             </div>
           </motion.div>
         ))}
