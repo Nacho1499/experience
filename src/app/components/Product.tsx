@@ -76,6 +76,7 @@ const Product = () => {
       initial="hidden"
       animate="show"
       variants={containerVariants}
+      id="product"
     >
       <h1 className="h-4 w-4 bg-[#F0D267] rounded-full mx-auto animate-bounce shadow-lg"></h1>
 

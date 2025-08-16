@@ -12,6 +12,7 @@ const Abouts = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
+      id='about'
     >
       {/* Image Section */}
       <motion.div
@@ -62,7 +63,7 @@ const Abouts = () => {
         </p>
 
         <Link href="/about">
-          <button className="bg-[#F0D267] px-6 py-3 rounded-full w-full md:w-auto text-black font-semibold shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200">
+          <button className="bg-[#F0D267] cursor-pointer px-6 py-3 rounded-full w-full md:w-auto text-black font-semibold shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200">
             Know More →
           </button>
         </Link>
