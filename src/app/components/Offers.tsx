@@ -88,11 +88,11 @@ const Offers = () => {
         {services.map((offer) => (
           <motion.div
             key={offer.id}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300"
+            className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transform transition-all duration-300"
             variants={cardVariants}
           >
             {/* Image */}
-            <div className="relative w-full h-56 md:h-64 overflow-hidden">
+            <div className="relative w-full h-40 md:h-48 overflow-hidden">
               <Image
                 src={offer.image}
                 alt={offer.title}
@@ -102,11 +102,13 @@ const Offers = () => {
             </div>
 
             {/* Content */}
-            <div className="p-6">
-              <h2 className="text-xl font-bold text-gray-800 mb-3">
+            <div className="p-5">
+              <h2 className="text-lg font-semibold text-gray-800 mb-2">
                 {offer.title}
               </h2>
-              <p className="text-gray-600 leading-relaxed">{offer.description}</p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {offer.description}
+              </p>
             </div>
           </motion.div>
         ))}

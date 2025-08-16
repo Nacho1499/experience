@@ -7,54 +7,67 @@ import { motion } from 'framer-motion';
 
 const Abouts = () => {
   return (
-    <motion.div
+    <motion.section
+      className="py-16 px-6 max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <section className="py-14 px-4 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center ">
-       
-        {/* Image section */}
-        <motion.div
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
+      {/* Image Section */}
+      <motion.div
+        initial={{ x: -60, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative"
+      >
+        <Image
+          src="/pic2.jpg"
+          alt="Our Team"
+          width={500}
+          height={350}
+          className="rounded-2xl object-cover shadow-lg"
+        />
+        {/* Decorative Accent */}
+        <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#F0D267] rounded-full opacity-30 blur-2xl"></div>
+      </motion.div>
+
+      {/* Text Section */}
+      <motion.div
+        className="space-y-6"
+        initial={{ x: 60, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <h2 className="text-4xl font-extrabold text-[#1B264F] tracking-tight">
+          About Us
+        </h2>
+        <hr className="w-16 border-t-4 border-[#F0D267]" />
+
+        <div className="flex justify-center">
           <Image
-            src="/pic2.jpg"
-            alt="Our Team"
-            width={500}
-            height={250}
-            className="rounded-2xl  object-cover"
+            src="/world.webp"
+            height={130}
+            width={180}
+            alt="about"
+            className="opacity-90"
           />
-         
-        </motion.div>
+        </div>
 
-        {/* Text section */}
-        <motion.div
-          className="space-y-6"
-          initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h2 className="text-3xl font-bold text-[#1B264F]">About us</h2>
-          <hr className='w-[50px]' />
-          <Image className='mx-auto' src="/world.webp" height={150} width={200} alt='about'/>
-          <p className="text-lg text-gray-800 leading-relaxed">
-            At the intersection of e-commerce, digital experience, and modern living, we exist to 
-            help businesses and individuals operate smarter and live better. With a background rooted in operational excellence and client-centric execution, we deliver bespoke solutions that drive measurable impact. Whether you're scaling a storefront or redefining your personal workflow, we’re here to elevate your journey.
+        <p className="text-lg text-gray-700 leading-relaxed">
+          At the intersection of <span className="font-semibold text-[#1B264F]">e-commerce</span>, 
+          digital experience, and modern living, we exist to help businesses and 
+          individuals operate smarter and live better. With a foundation rooted 
+          in operational excellence and client-centric execution, we deliver 
+          bespoke solutions that create measurable impact.
+        </p>
 
-          </p>
-
-          <Link href="/about">
-            <button className="bg-[#F0D267] p-3 rounded-full w-full lg:w-[200px] cursor-pointer hover:opacity-90 transition">
-              Know more
-            </button>
-          </Link>
-        </motion.div>
-
-      </section>
-    </motion.div>
+        <Link href="/about">
+          <button className="bg-[#F0D267] px-6 py-3 rounded-full w-full md:w-auto text-black font-semibold shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200">
+            Know More →
+          </button>
+        </Link>
+      </motion.div>
+    </motion.section>
   );
 };
 
