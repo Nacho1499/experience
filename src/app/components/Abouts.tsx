@@ -44,14 +44,34 @@ const Abouts = () => {
         </h2>
         <hr className="w-16 border-t-4 border-[#F0D267]" />
 
-        <div className="flex justify-center">
+        <div className="flex gap-8 mt-8">
+          <div className='shadow-lg p-4 rounded-md'>
           <Image
-            src="/world.webp"
-            height={130}
-            width={180}
+            src="/3.jpg"
+            height={50}
+            width={25}
             alt="about"
             className="opacity-90"
           />
+          </div>
+          <div className='shadow-lg p-4 rounded-md'>
+          <Image
+            src="/2.jpg"
+            height={50}
+            width={25}
+            alt="about"
+            className="opacity-90"
+          />
+          </div>
+          <div className='shadow-lg p-4 rounded-md'>
+          <Image
+            src="/1.jpg"
+            height={50}
+            width={25}
+            alt="about"
+            className="opacity-90"
+          />
+          </div>
         </div>
 
         <p className="text-lg text-gray-700 leading-relaxed">
