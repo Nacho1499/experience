@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -13,10 +14,40 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setStatus("loading");
+
+    try {
+      const response = await fetch("https://formspree.io/f/myzpqyrb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" }); // clear form
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus("error");
+    }
   };
+
+  // Auto-clear success/error message after 4 seconds
+  useEffect(() => {
+    if (status === "success" || status === "error") {
+      const timer = setTimeout(() => {
+        setStatus(null);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   return (
     <div className="bg-[#F5F5F5] text-[#2C1F02] font-sans">
@@ -55,7 +86,7 @@ export default function ContactPage() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold mb-6">Our Vision</h2>
-          <hr className='w-[50px]' />
+          <hr className="w-[50px]" />
           <p className="mb-8 leading-relaxed">
             A modern consultancy for the connected era—equipping creators and
             service professionals with the resources to build resilient,
@@ -63,7 +94,7 @@ export default function ContactPage() {
           </p>
 
           <h2 className="text-3xl font-bold mb-6">Our Why</h2>
-          <hr className='w-[50px]' />
+          <hr className="w-[50px]" />
           <p className="mb-8 leading-relaxed">
             We exist to teach 1 million modern entrepreneurs how to build
             aligned businesses, master their time, and thrive on their own
@@ -119,9 +150,19 @@ export default function ContactPage() {
             <button
               type="submit"
               className="w-full bg-[#F0D267] text-white px-6 py-3 cursor-pointer rounded-lg shadow hover:bg-[#4A3510] transition"
+              disabled={status === "loading"}
             >
-              Send Message
+              {status === "loading" ? "Sending..." : "Send Message"}
             </button>
+
+            {status === "success" && (
+              <p className="text-green-600 mt-2">Message sent successfully ✅</p>
+            )}
+            {status === "error" && (
+              <p className="text-red-600 mt-2">
+                Oops! Something went wrong. Please try again.
+              </p>
+            )}
           </form>
         </motion.div>
       </div>
