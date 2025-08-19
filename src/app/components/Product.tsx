@@ -13,6 +13,12 @@ interface Offer {
   pdf: string;
 }
 
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+}
+
 const services: Offer[] = [
   {
     id: 1,
@@ -28,7 +34,7 @@ const services: Offer[] = [
     image: "/style.jpg",
     pdf: "/Brand.pdf",
     description:
-      "Inspired by the principle of the world’s most iconic brands, this 10+ plug-and-play guide book gives you the tools to define, refine, and scale your brand with confidence.",
+      "Inspired by the principle of the world's most iconic brands, this 10+ plug-and-play guide book gives you the tools to define, refine, and scale your brand with confidence.",
   },
   {
     id: 3,
@@ -54,20 +60,101 @@ const cardVariants = {
 };
 
 const Product = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedProduct, setSelectedProduct] = useState<Offer | null>(null);
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    phone: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
 
-    if (selectedPdf) {
-      const link = document.createElement("a");
-      link.href = selectedPdf;
-      link.download = selectedPdf.split("/").pop() || "product.pdf";
-      link.click();
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          productTitle: selectedProduct?.title || "",
+          pdf: selectedProduct?.pdf || "",
+        }),
+      });
+
+      let result;
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        result = await response.json();
+      } else {
+        throw new Error("Server did not return JSON.");
+      }
+
+      if (result.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: "Information saved successfully! Your download will start now.",
+        });
+
+        // Download the PDF
+        if (selectedProduct?.pdf) {
+          const link = document.createElement("a");
+          link.href = selectedProduct.pdf;
+          link.download = selectedProduct.pdf.split("/").pop() || "product.pdf";
+          link.click();
+        }
+
+        // Reset form after successful submission
+        setTimeout(() => {
+          setFormData({ name: "", email: "", phone: "" });
+          setIsOpen(false);
+          setSubmitStatus({ type: null, message: "" });
+        }, 2000);
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: "Failed to save information. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "An error occurred. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
+  };
 
+  const openModal = (product: Offer) => {
+    setSelectedProduct(product);
+    setIsOpen(true);
+    setSubmitStatus({ type: null, message: "" });
+  };
+
+  const closeModal = () => {
     setIsOpen(false);
+    setSelectedProduct(null);
+    setFormData({ name: "", email: "", phone: "" });
+    setSubmitStatus({ type: null, message: "" });
   };
 
   return (
@@ -126,10 +213,7 @@ const Product = () => {
               <p className="text-gray-600">{offer.description}</p>
               <div className="mt-5">
                 <button
-                  onClick={() => {
-                    setSelectedPdf(offer.pdf);
-                    setIsOpen(true);
-                  }}
+                  onClick={() => openModal(offer)}
                   className="font-bold text-sm cursor-pointer hover:bg-[#F0D267] px-4 py-2 rounded-full transition border border-[#F0D267]"
                 >
                   View product →
@@ -148,8 +232,8 @@ const Product = () => {
         </Link>
       </div>
 
-      {/* Popup Modal */}
-      {isOpen && (
+      {/* Enhanced Popup Modal */}
+      {isOpen && selectedProduct && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -159,15 +243,32 @@ const Product = () => {
           >
             {/* Close button */}
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={closeModal}
               className="absolute top-3 right-3 text-gray-500 hover:text-red-500 transition"
+              disabled={isSubmitting}
             >
               ✕
             </button>
 
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center">
               Get Your Copy
             </h2>
+            <p className="text-sm text-gray-600 mb-6 text-center">
+              {selectedProduct.title}
+            </p>
+
+            {/* Status Messages */}
+            {submitStatus.type && (
+              <div
+                className={`mb-4 p-3 rounded-lg text-sm ${
+                  submitStatus.type === "success"
+                    ? "bg-green-100 text-green-700 border border-green-200"
+                    : "bg-red-100 text-red-700 border border-red-200"
+                }`}
+              >
+                {submitStatus.message}
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
@@ -176,9 +277,13 @@ const Product = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="John Doe"
                   className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-[#F0D267] focus:border-[#F0D267] outline-none transition"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
 
@@ -188,9 +293,13 @@ const Product = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="example@mail.com"
                   className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-[#F0D267] focus:border-[#F0D267] outline-none transition"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
 
@@ -200,17 +309,33 @@ const Product = () => {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   placeholder="+234 000 000 0000"
                   className="w-full mt-2 px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-[#F0D267] focus:border-[#F0D267] outline-none transition"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#F0D267] cursor-pointer text-gray-900 font-bold py-3 rounded-xl hover:bg-yellow-400 hover:shadow-md transition"
+                disabled={isSubmitting}
+                className={`w-full font-bold py-3 rounded-xl transition-all duration-200 ${
+                  isSubmitting
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-[#F0D267] hover:bg-yellow-400 hover:shadow-md cursor-pointer"
+                } text-gray-900`}
               >
-                Download PDF
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900 mr-2"></div>
+                    Saving...
+                  </div>
+                ) : (
+                  "Download PDF"
+                )}
               </button>
             </form>
           </motion.div>
