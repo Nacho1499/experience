@@ -13,8 +13,9 @@ export default function Home() {
     <Offers/>
     <Abouts/>
     <Product/>
+     <Action/>
     <Testimonia/>
-    <Action/>
+   
     <Faq/>
     </>
   );
