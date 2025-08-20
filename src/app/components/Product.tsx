@@ -22,11 +22,11 @@ interface FormData {
 const services: Offer[] = [
   {
     id: 1,
-    title: "E-commerce Support",
-    image: "/pro1.jpg",
-    pdf: "/pro1.pdf",
+    title: "How To Negotiate Kit",
+    image: "/nego.jpg",
+    pdf: "/Negotiate.pdf",
     description:
-      "Scale your store without the stress—our team handles customer queries, issue resolution, and support so you can focus on growth.",
+      "This 10-page-hands-on guide is your blueprint for mastering negotiation with even the toughest clients. Backed with proven psychological frameworks,CEO tactics, and client-tested scripts, you will learn how to ask the right questions,respond with confidence, and high-value deals with ease.",
   },
   {
     id: 2,
@@ -210,6 +210,7 @@ const Product = () => {
               <h2 className="text-2xl font-bold text-gray-800 mb-3">
                 {offer.title}
               </h2>
+              <hr  className="py-2 w-[50px] text-yellow-400 "/>
               <p className="text-gray-600">{offer.description}</p>
               <div className="mt-5">
                 <button
@@ -331,7 +332,7 @@ const Product = () => {
                 {isSubmitting ? (
                   <div className="flex items-center justify-center">
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900 mr-2"></div>
-                    Saving...
+                    Downloading...
                   </div>
                 ) : (
                   "Download PDF"
