@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Billionth-experience",
   description: "Billionth-experience is a platform that empowers enterepreneurs and small businesses with scalable support, stategic insight, and digaital resources.",
+   icons: {
+    icon: "favicon.png",
+  },
 };
 
 export default function RootLayout({
