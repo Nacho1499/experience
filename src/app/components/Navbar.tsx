@@ -68,11 +68,11 @@ const Navbar: React.FC = () => {
                         Home
                     </Link>
                     <Link
-                        href=""
+                        href="/about"
                         onClick={toggleMenu}
                         className="block "
                     >
-                        product
+                        About Us
                     </Link>
                     <Link
                         href="/contact"

@@ -26,7 +26,7 @@ const services: Offer[] = [
     image: "/nego.jpg",
     pdf: "/Negotiate.pdf",
     description:
-      "This 10-page-hands-on guide is your blueprint for mastering negotiation with even the toughest clients. Backed with proven psychological frameworks,CEO tactics, and client-tested scripts, you will learn how to ask the right questions,respond with confidence, and high-value deals with ease.",
+      "This 10-page-hands-on guide is your blueprint for mastering negotiation with even the toughest clients. Backed with proven psychological frameworks,CEO tactics, and client-tested scripts.",
   },
   {
     id: 2,
