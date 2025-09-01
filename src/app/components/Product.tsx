@@ -30,7 +30,7 @@ const services: Offer[] = [
   },
   {
     id: 2,
-    title: "Brand Style Guide Kits",
+    title: "Brand Style Guide Kit",
     image: "/style.jpg",
     pdf: "/Brand.pdf",
     description:
@@ -38,9 +38,9 @@ const services: Offer[] = [
   },
   {
     id: 3,
-    title: "Lifestyle/Business Consultancy",
+    title: "Practical Business Management Kit",
     image: "/pro2.jpg",
-    pdf: "/pro2.pdf",
+    pdf: "/practical.pdf",
     description:
       "Transform the way you work and live through bespoke consultancy that bridges strategy, structure, and sustainability.",
   },
