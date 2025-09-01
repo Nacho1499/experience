@@ -39,7 +39,7 @@ const services: Offer[] = [
   {
     id: 3,
     title: "Practical Business Management Kit",
-    image: "/pro2.jpg",
+    image: "/pra.jpg",
     pdf: "/practical.pdf",
     description:
       "Transform the way you work and live through bespoke consultancy that bridges strategy, structure, and sustainability.",
